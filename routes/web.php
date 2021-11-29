@@ -22,5 +22,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'v1','middleware'=>['auth','is_admin']], function(){
-    
+
+        // teste route
+        Route::get('/teste', function(){
+            return "Hello from test!";
+        });
 });
