@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Annee extends Model
 {
     use HasFactory;
+
+    protected $table = 'annees';
+
+    protected $fillable = [
+        'name',
+        'debut',
+        'fin',
+        'etat',
+        'etablissement_id'
+    ];
 }

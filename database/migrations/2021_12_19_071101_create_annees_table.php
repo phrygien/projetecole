@@ -19,8 +19,8 @@ class CreateAnneesTable extends Migration
             $table->string('debut');
             $table->string('fin');
             $table->string('etat')->default(0);
-            $table->unsignedBigInteger('ateblissement_id');
-            $table->foreign('etablissement_id')->references('id')->on('etablissements');
+            $table->unsignedBigInteger('atablissement_id');
+            $table->foreign('atablissement_id')->references('id')->on('etablissements');
             $table->timestamps();
         });
     }
