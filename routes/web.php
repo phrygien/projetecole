@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EtablissementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'v1','middleware'=>['auth','is_admin']], function(){
+Route::group(['middleware'=>['auth','is_admin']], function(){
 
         // teste route
-        Route::get('/teste', function(){
-            return "Hello from test!";
-        });
+        Route::get('/etablissements', [EtablissementController::class, 'index'])->name('liste-etab');
+        Route::get('/create-etablissement',[EtablissementController::class, 'create'])->name('create-etab');
+        Route::post('/store-etab',[EtablissementController::class, 'store'])->name('save-etab');
+
 });
