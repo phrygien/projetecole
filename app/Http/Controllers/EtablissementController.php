@@ -17,6 +17,7 @@ class EtablissementController extends Controller
             'breadcumb' => 'Etablissement',
             'link' => 'etablissements',
             'title' => 'Etablissement',
+            'page_header' => 'Tous les etablissement',
         );
 
         return view('etablissement.index',compact('etablissements','data'));

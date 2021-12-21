@@ -1,106 +1,99 @@
 @extends('layouts.back')
 @section('content')
-<div class="breadcome-area">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcome-list single-page-breadcome">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="breadcome-heading">
-                                <form role="search" class="sr-input-func">
-                                    <input type="text" placeholder="Search..." class="search-int form-control">
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <ul class="breadcome-menu">
-                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
-                                </li>
-                                <li><span class="bread-blod">{{$data['breadcumb']}}</span>
-                                </li>
-                            </ul>
-                        </div>
+<div class="dashboard-content-one">
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>{{$data['title']}}</h3>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>{{$data['breadcumb']}}</li>
+        </ul>
+    </div>
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Table Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title">
+                    <h3>{{$data['page_header']}}</h3>
+                </div>
+                <button type="button" class="btn-fill-md text-light bg-dark-pastel-green">Ajouter un etablissement</button>
+            </div>
+            <form class="mg-b-20">
+                <div class="row gutters-8">
+                    <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Chercher par code Etablissement ..." class="form-control">
+                    </div>
+                    <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Chercher par nom etablissement ..." class="form-control">
+                    </div>
+                    <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Chercher par ville etablissement ..." class="form-control">
+                    </div>
+                    <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">{{__('Chercher')}}</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="product-status mg-b-15">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
-
-            <div class="product-status-wrap">
-                <h4>{{$data['title']}}</h4>
-                <div class="add-product">
-                    <a href="{{route('create-etab')}}">Ajouter Nouveau</a>
-                </div>
-                <div class="asset-inner">
-                    <table>
+            </form>
+            <div class="table-responsive">
+                <table class="table display data-table text-nowrap">
+                    <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Logo</th>
-                            <th>Code</th>
-                            <th>Telephone</th>
-                            <th>Email</th>
-                            <th>Responsable</th>
-                            <th>Ville</th>
-                            <th>Adresse</th>
-                            <th>Etat</th>
-                            <th>Action</th>
+                            <th>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input checkAll">
+                                    <label class="form-check-label">{{__('Code')}}</label>
+                                </div>
+                            </th>
+                            <th>{{__('Logo')}}</th>
+                            <th>{{__('Nom')}}</th>
+                            <th>{{__('Telephone')}}</th>
+                            <th>{{__('Email')}}</th>
+                            <th></th>
                         </tr>
-                        @if (count($etablissements)>0)
+                    </thead>
+                    <tbody>
                         @foreach ($etablissements as $item)
                         <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input">
+                                    <label class="form-check-label">{{$item->code}}</label>
+                                </div>
+                            </td>
+                            <td class="text-center"><img src="image/{{ $item->logo }}" alt="student" style="width: 90px; height:90px; border-radius: 50%; border: solid 2px yellow;"></td>
                             <td>{{$item->name}}</td>
-                            <td><img src="image/{{ $item->logo }}" alt="" /></td>
-                            <td>{{$item->code}}</td>
-                            <td>
-                                {{$item->telephone}}
-                            </td>
+                            <td>{{$item->telephone}}</td>
                             <td>{{$item->email}}</td>
-                            <td>{{$item->responsable}}</td>
-                            <td>{{$item->ville}}</td>
-                            <td>{{$item->adresse}}</td>
                             <td>
-                                @if ($item->etat ==1)
-                                <button class="pd-setting">Active</button>
-                                @else
-                                <button class="btn btn-danger">Desactivé</button>
-                                @endif
-                            </td>
-                            <td>
-                                <button data-toggle="tooltip" title="Edit" class="btn btn-custon-two btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> editer</button>
-                                <button data-toggle="tooltip" title="Trash" class="btn btn-custon-three btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span class="flaticon-more-button-of-three-dots"></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-times text-orange-red"></i>Close</a>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
-                        @else
-                        <div class="alert alert-warning">Aucun données disponible pour le moment!</div>
-                        @endif
-                    </table>
-                </div>
-                <div class="custom-pagination">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
+    <!-- Student Table Area End Here -->
+    <footer class="footer-wrap-layout1">
+        <div class="copyright">© Copyrights <a href="#">akkhor</a> 2019. All rights reserved. Designed by <a
+                href="#">PsdBosS</a></div>
+    </footer>
 </div>
 @endsection

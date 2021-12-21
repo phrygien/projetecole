@@ -11,25 +11,27 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <!-- Flaticon CSS -->
-    <link rel="stylesheet" href="fonts/flaticon.css">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon.css') }}">
     <!-- Full Calender CSS -->
-    <link rel="stylesheet" href="css/fullcalendar.min.css">
+    <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
     <!-- Modernize js -->
-    <script src="js/modernizr-3.6.0.min.js"></script>
+    <script src="{{ asset('js/modernizr-3.6.0.min.js') }}"></script>
 </head>
 
 <body>
@@ -248,125 +250,129 @@
                 <div class="sidebar-menu-content">
                     <ul class="nav nav-sidebar-menu sidebar-toggle-view">
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>{{__('sidebar.dashboard')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="index.html" class="nav-link"><i class="fas fa-angle-right"></i>Admin</a>
+                                    <a href="index.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.dash_admin')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="index3.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Students</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.dash_etudiant')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="index4.html" class="nav-link"><i class="fas fa-angle-right"></i>Parents</a>
+                                    <a href="index4.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.dash_etudiant')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="index5.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Teachers</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.dash_parent')}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
+                            <a href="#" class="nav-link"><i class="flaticon-menu-1"></i><span>{{__('sidebar.etablissement')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="all-student.html" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Students</a>
+                                    <a href="{{route('liste-etab')}}" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_etablissement')}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('create-etab')}}" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_etablissement')}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="all-subject.html" class="nav-link"><i
+                                    class="flaticon-open-book"></i><span>{{__('Année scolaire')}}</span></a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>{{__('sidebar.etudiant')}}</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="all-student.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_etudiant')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="student-details.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Student Details</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.student_detail')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="admit-form.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Admission Form</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.student_admision')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="student-promotion.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Student Promotion</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.student_promo')}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i
-                                    class="flaticon-multiple-users-silhouette"></i><span>Teachers</span></a>
+                                    class="flaticon-multiple-users-silhouette"></i><span>{{__('sidebar.teacher')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="all-teacher.html" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Teachers</a>
+                                    <a href="all-teacher.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_teacher')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="teacher-details.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Teacher Details</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.teacher_detail')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-teacher.html" class="nav-link"><i class="fas fa-angle-right"></i>Add
-                                        Teacher</a>
+                                    <a href="add-teacher.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_teacher')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="teacher-payment.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Payment</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.payement')}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-couple"></i><span>Parents</span></a>
+                            <a href="#" class="nav-link"><i class="flaticon-couple"></i><span>{{__('sidebar.parents')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="all-parents.html" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Parents</a>
+                                    <a href="all-parents.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_parents')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="parents-details.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Parents Details</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.parent_details')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-parents.html" class="nav-link"><i class="fas fa-angle-right"></i>Add
-                                        Parent</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-books"></i><span>Library</span></a>
-                            <ul class="nav sub-group-menu">
-                                <li class="nav-item">
-                                    <a href="all-book.html" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Book</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="add-book.html" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                        Book</a>
+                                    <a href="add-parents.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_parent')}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>Acconunt</span></a>
+                            <a href="#" class="nav-link"><i class="flaticon-books"></i><span>{{__('sidebar.library')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="all-fees.html" class="nav-link"><i class="fas fa-angle-right"></i>All Fees
-                                        Collection</a>
+                                    <a href="all-book.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_book')}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="add-book.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_book')}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>{{__('sidebar.acconunt')}}</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="all-fees.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_fee')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="all-expense.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Expenses</a>
+                                            class="fas fa-angle-right"></i>{{__('sidebar.all_expense')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-expense.html" class="nav-link"><i class="fas fa-angle-right"></i>Add
-                                        Expenses</a>
+                                    <a href="add-expense.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_expenses')}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i
-                                    class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>Class</span></a>
+                                    class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i><span>{{__('sidebar.class')}}</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
-                                    <a href="all-class.html" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Classes</a>
+                                    <a href="all-class.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.all_class')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-class.html" class="nav-link"><i class="fas fa-angle-right"></i>Add New
-                                        Class</a>
+                                    <a href="add-class.html" class="nav-link"><i class="fas fa-angle-right"></i>{{__('sidebar.add_class')}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -410,24 +416,6 @@
                             <a href="messaging.html" class="nav-link"><i
                                     class="flaticon-chat"></i><span>Messeage</span></a>
                         </li>
-                        <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i class="flaticon-menu-1"></i><span>UI Elements</span></a>
-                            <ul class="nav sub-group-menu">
-                                <li class="nav-item">
-                                    <a href="button.html" class="nav-link"><i class="fas fa-angle-right"></i>Button</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="grid.html" class="nav-link"><i class="fas fa-angle-right"></i>Grid</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="ui-tab.html" class="nav-link"><i class="fas fa-angle-right"></i>Tab</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="progress-bar.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Progress Bar</a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
                             <a href="map.html" class="nav-link"><i
                                     class="flaticon-planet-earth"></i><span>Map</span></a>
@@ -445,27 +433,29 @@
         <!-- Page Area End Here -->
     </div>
     <!-- jquery-->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- Counterup Js -->
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
     <!-- Moment Js -->
-    <script src="js/moment.min.js"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
     <!-- Waypoints Js -->
-    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <!-- Scroll Up Js -->
-    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
+    <!-- Data Table Js -->
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <!-- Full Calender Js -->
-    <script src="js/fullcalendar.min.js"></script>
+    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <!-- Chart Js -->
-    <script src="js/Chart.min.js"></script>
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
     <!-- Custom Js -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
 </body>
 
